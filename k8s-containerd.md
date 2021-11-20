@@ -51,7 +51,7 @@ kind-worker          Ready    <none>                 2d11h   v1.21.1   172.18.0.
 kind-worker3         Ready    <none>                 2d11h   v1.21.1   172.18.0.3    <none>        Ubuntu 21.04   5.11.0-40-generic   docker://19.3.10
 kind-worker2         Ready,SchedulingDisabled        2d11h   v1.21.1   172.18.0.5    <none>        Ubuntu 21.04   5.11.0-40-generic   containerd://1.4.3
 ```
-###  node를 활성화하고 동일하게 다른 node에 진행 합니다.
+###  node를 활성화하고 동일하게 다른 node에 진행하며 wokernode 완료후 controlnode를 동일하게 진행합니다.
 ```
 kubectl uncordon kind-woker2
 ```
