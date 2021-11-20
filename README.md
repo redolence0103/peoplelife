@@ -2,9 +2,8 @@
 peoplelife  교육자료
 
 https://kind.sigs.k8s.io/
-
 Linux vm(ubuntu 20.04 lts)에 KIND 설치 내역
-
+![kind-k8s-env](https://user-images.githubusercontent.com/90162116/142726818-9f0747b5-04e5-42d4-881e-10a99c52d13c.png)
 
 ## vm 서버에 docker 설치 
 
