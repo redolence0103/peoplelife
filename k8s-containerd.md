@@ -1,5 +1,5 @@
 # docker to containerd
-
+![docker-process-docker-shim drawio](https://user-images.githubusercontent.com/90162116/142732876-af290a64-056d-48e1-a70a-27aa879cb4d1.png)
 ### node 확인
 ```
 kubectl get nodes -o wide
