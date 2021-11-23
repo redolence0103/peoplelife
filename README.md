@@ -167,3 +167,11 @@ ingress-nginx 설치
 kubectl create ns ingress-nginx
 helm install nginx-ingress ingress-nginx/ingress-nginx --namespace=ingress-nginx --values /tmp/ingress-nginx.yaml
 ```
+## nfs-subdir-external-provisioner 설치
+
+```bash
+$ helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+$ helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+    --set nfs.server=x.x.x.x \
+    --set nfs.path=/exported/path
+```
