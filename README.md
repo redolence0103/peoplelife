@@ -170,8 +170,13 @@ helm install nginx-ingress ingress-nginx/ingress-nginx --namespace=ingress-nginx
 ## nfs-subdir-external-provisioner 설치
 
 ```bash
-$ helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
-$ helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+# 먼저 각 node에 nfs client가 설치되어야합니다.
+sudo apt update
+sudo install -y nfs-common
+
+# helm으로 설치합니다.
+helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+helm install nfs-subdir-external-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
     --set nfs.server=x.x.x.x \
     --set nfs.path=/exported/path
 ```
