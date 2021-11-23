@@ -6,6 +6,8 @@ https://istio.io/latest/docs/
 curl -L https://istio.io/downloadIstio | sh -
 export PATH=$PATH:/home/atid/istio-1.11.4/bin
 istioctl install
+# inject sidecar
+kubectl label namespace default istio-injection=enabled --overwrite
 ```
 
 
