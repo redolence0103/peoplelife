@@ -6,10 +6,19 @@ https://istio.io/latest/docs/
 curl -L https://istio.io/downloadIstio | sh -
 export PATH=$PATH:/home/atid/istio-1.11.4/bin
 istioctl install
-# inject sidecar
-kubectl label namespace default istio-injection=enabled --overwrite
 ```
+### Install Demo Application
 
+```bash
+kubectl label namespace demo istio-injection=enabled
+namespace/demo labeled
+kubectl label namespace demo istio-injection=enabled --overwrite
+kubectl config set-context --current --namespace=demo
+# app 배포
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+# istio-gateway 배포
+kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+```
 
 
 ### Install Prometheus and Grafana
