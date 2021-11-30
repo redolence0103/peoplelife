@@ -4,7 +4,7 @@ https://istio.io/latest/docs/
 
 ```bash
 curl -L https://istio.io/downloadIstio | sh -
-export PATH=$PATH:/home/atid/istio-1.11.4/bin
+export PATH=$PATH:/home/atid/istio-1.12.0/bin
 istioctl install
 ```
 ### Install Demo Application
