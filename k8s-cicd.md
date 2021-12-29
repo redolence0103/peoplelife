@@ -1,4 +1,22 @@
-### jenkins groovy file
+# Jenkins CI/CD
+
+## cicd process 설정
+
+1.  github 설정
+   - GitHub 에 코드를 upload
+2. jenkins 설정
+   - Jenkins 서버에 코드를 download
+3. build/compile 프로젝트 (gradle)
+   - Gradle 사용 환경을 설정
+4. build docker image
+   - Docker Image 생성
+5. Push latest docker image to dockerhub
+   - 생성된 Docker image를 Docker Hub에 upload
+6. Pull latest docker image from dockerhub
+   - Docker image download
+7. deploy deployment app into K8S cluster
+   - K8S 클러스터에 App 배포
+## jenkins groovy file
 ```
 node {
     stage("Git Clone"){
