@@ -1,5 +1,11 @@
 # Jenkins 설치 및 운영
 
+## java 11 설치
+sudo apt update -y
+sudo apt install openjdk-11-jdk
+~/.bashrc
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
 ## jenkins 설치
 - 저장소 키 다운로드
 ```
@@ -10,6 +16,29 @@ sudo systemctl status jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 sudo usermod -a -G docker jenkins
+port: 8080
+Install suggested plugins
+change Username/password
+Jenkins URL: http://$IP:8080/
+
+"SSH Pipeline Steps" Install plugin
+"Gradle" 설정
+- Manage Jenkins -> Global Tool Configuration -> Gradle
+  Add Gradle > enter name: default
+  
+sudo usermod -aG docker jenkins
+
+github code 확인
+
+Jenkins > New Items > enter name: sit-cicd > select Pipeline
+
+stage("Git Clone")
+Jenkins > Manage Jenkins> Manage Credentials > (global) Add credentials <Username with password > ID: GIT_HUB_CREDENTIALS
+
+stage("Docker Login")
+Jenkins > manage Jenkins > Manage Credentials > (global) > Add Credentials > Secret text > ID: DOCKER_HUB_PASSWORD
+
+
 ```
 - Installing Plugins/Upgrades
 ```
@@ -79,3 +108,4 @@ pipeline {
 }
 
 ```
+https://jhooq.com/ci-cd-jenkins-kubernetes/
