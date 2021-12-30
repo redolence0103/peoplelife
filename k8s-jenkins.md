@@ -1,17 +1,32 @@
 # Jenkins 설치 및 운영
 
-## java 11 설치
+### EC2 Id/Password 허용
+```
+sudo cd /etc/ssh
+sudo vi sshd_config
+.....
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication yes
+.....
+:wq!
+sudo systemctl restart sshd
+```
+
+### java 11 설치
+```
 sudo apt update -y
 sudo apt install openjdk-11-jdk
-~/.bashrc
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+```
 
-## jenkins 설치
+### jenkins 설치
 - 저장소 키 다운로드
 ```
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FCEF32E745F2C3D5 && sudo apt-get update
 echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+sudo apt update -y
+sudo apt install jenkins -y
 sudo systemctl status jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
@@ -27,7 +42,9 @@ Jenkins URL: http://$IP:8080/
   Add Gradle > enter name: default
   
 sudo usermod -aG docker jenkins
-
+```
+### jenkins credential
+```
 github code 확인
 
 Jenkins > New Items > enter name: sit-cicd > select Pipeline
@@ -37,8 +54,6 @@ Jenkins > Manage Jenkins> Manage Credentials > (global) Add credentials <Usernam
 
 stage("Docker Login")
 Jenkins > manage Jenkins > Manage Credentials > (global) > Add Credentials > Secret text > ID: DOCKER_HUB_PASSWORD
-
-
 ```
 - Installing Plugins/Upgrades
 ```
