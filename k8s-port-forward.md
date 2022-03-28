@@ -28,11 +28,13 @@ iptables -A FORWARD -p tcp --dport 80 -d 172.18.70.4 -j ACCEPT
 외부의 kubectl이 설치된 환경에서 접속가능한 IP 대역(공인 또는 Local)에서 실행 중인 KIND K8S 클러스터에 접근 방법
 - KIND cluster에 접속된 kubectl 환경에서 실행
 ```bash
-# KIND Cluster 실행 서버 IP POrtForwarding (iptables 사용)
+# KIND Cluster 실행 서버 IP PortForwarding (iptables 사용)
 # apiserver.crt에 등록된 alternative name 확인
 # 실행 서버 IP와 PortForwarding 포트 등록 (접근할 kubectl이 설치된 terminal)
 openssl x509 -in apiserver.crt -text
 kubeadm init phase certs apiserver --apiserver-cert-extra-sans=218.236.22.90
 kubectl -n kube-system get configmap kubeadm-config -o yaml
 kubectl -n kube-system edit configmap kubeadm-config -o yaml # IP list 추가(218.236.22.90)
+# port-forwarding 확인
+sudo iptables -t nat -L
 ```
