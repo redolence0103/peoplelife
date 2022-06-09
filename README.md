@@ -86,6 +86,7 @@ kubectl create -f components.yaml
 kube-proxy를 ipvs mode로 설정
 
 ```
+kubectl -n kube-system edit configmap kube-proxy
   .....
 mode: "ipvs"
 ipvs:
