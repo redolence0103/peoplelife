@@ -10,7 +10,7 @@ apt install docker.io -y
 ```
 ## K8S component 다운로드
 ```bash
-wget https://storage.googleapis.com/kubernetes-release/release/v1.9.11/kubernetes-server-linux-amd64.tar.gz
+wget https://storage.googleapis.com/kubernetes-release/release/v1.19.11/kubernetes-server-linux-amd64.tar.gz
 tar -xzf kubernetes-server-linux-amd64.tar.gz
 cd kubernetes/server/bin/
 mv kubectl kubelet kube-apiserver kube-controller-manager kube-scheduler kube-proxy /usr/bin/
