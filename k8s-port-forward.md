@@ -34,7 +34,7 @@ iptables -A FORWARD -p tcp --dport 80 -d 172.18.70.4 -j ACCEPT
 openssl x509 -in apiserver.crt -text
 kubeadm init phase certs apiserver --apiserver-cert-extra-sans=218.236.22.90
 kubectl -n kube-system get configmap kubeadm-config -o yaml
-kubectl -n kube-system edit configmap kubeadm-config -o yaml # IP list 추가(218.236.22.90)
+kubectl -n kube-system edit configmap kubeadm-config  # IP list 추가(218.236.22.90)
 # port-forwarding 확인
 sudo iptables -t nat -L
 ```
