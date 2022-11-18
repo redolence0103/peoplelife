@@ -20,21 +20,9 @@ sudo apt install -y docker.io
 sudo usermod -aG docker $USER
 ```
 
-
-
-## GO 설치
-
-```
-wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
-sudo tar zfx go1.16.7.linux-amd64.tar.gz -C /usr/local
-export PATH=$PATH:/usr/local/go/bin
-```
-
-
-
 ## kubectl 설치
 
-```
+```bash
 curl -LO https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl
 ```
 
@@ -42,9 +30,10 @@ curl -LO https://dl.k8s.io/release/v1.21.0/bin/linux/amd64/kubectl
 
 ## kind 설치 및 docker 기반 k8s cluster 생성
 
-```
-GO111MODULE="on" go get sigs.k8s.io/kind@v0.11.1
-sudo mv $PWD/go/bin/kind /usr/local/go/bin
+```bash
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
 
 cat << EOF > ./kind.yaml
 kind: Cluster
